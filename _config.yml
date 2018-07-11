@@ -14,10 +14,9 @@ direction: ltr
 # navigation menu. Optionally, you can add translations for the 'Key' in
 # languages/*.yml
 nav:
-  home: /
-  about: /about/
-  articles: /archives/
-  projects: projects_url
+  Accueil: /
+  Équipe: /equipe/
+  Nouvelles: /nouvelles/
 
 
 # Links to your social media accounts.
@@ -86,7 +85,7 @@ favicon:
 # Set the color scheme.
 # Available color schemes are 'dark', 'light', 'classic' and 'white'.
 # Alternatively, add your own custom color scheme to source/css/_colors.
-colorscheme: dark
+colorscheme: white
 
 # Maximal width of the page in rem units.
 page_width: 48
@@ -129,4 +128,4 @@ baidu_analytics:
 # Fill in you Gravatar user id / email if you want to use your gravatar as the
 # logo and/or favicons of you website.
 gravatar:
-  email: name@email.com
+#  email: name@email.com
