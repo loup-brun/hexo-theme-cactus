@@ -12,11 +12,12 @@ global-reset()
 
 html
   height: 100%
-  border-top: 2px solid $color-text
   -webkit-text-size-adjust: 100%
   -ms-text-size-adjust: 100%
 
 body
+  padding: 0
+  margin: 0
   display: flex
   flex-direction: column
   background-color: $color-background
@@ -29,6 +30,23 @@ body
 
   antialias()
 
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6
+  font-family: $font-family-serif
+  font-weight: 900
+  margin: 0.2em 0 0.05em
+  line-height: 1
+h1, .h1
+  font-size: 2.5em
+
+@media (min-width: 900px)
+  h1, .h1
+    font-size: 7vw
+  
 .content
   flex: 1
 
@@ -36,6 +54,7 @@ body
 
   p
     hyphens(auto)
+    margin: 2em 0
 
   code
     hyphens(manual)
@@ -181,3 +200,8 @@ code
 
   .line
     height: 22px
+
+.hero
+  background-color: $color-link
+  .hero-content
+    padding: 20vh 10vw 20vh

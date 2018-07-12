@@ -1,4 +1,7 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <%- partial('_partial/post/title', { post: page, index: false, class_name: 'posttitle' }) %>
+  </header>
   <% if (page.search) { %>
     <%- partial('_partial/search') %>
   <% } %>

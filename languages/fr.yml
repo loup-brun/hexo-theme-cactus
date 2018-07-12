@@ -1,7 +1,7 @@
 nav:
   home: Accueil
-  about: A propos
-  articles: Articles
+  about: À propos
+  articles: Nouvelles
   projects: Projets
   search: Chercher
 
@@ -9,10 +9,10 @@ footer:
   copyright: Copyright
 
 index:
-  find_me_on: Retrouve moi sur
+  find_me_on: Retrouvez-nous sur
   enum_comma: ','
   enum_and: et
-  articles: Articles
+  articles: Nouvelles
   projects: Projets
 
 post:
@@ -23,7 +23,7 @@ post:
     share: Partager cette article
   mobile:
     menu: Menu
-    toc: Table des matière
+    toc: Table des matières
     back_to_top: Début
     share: Partager
 

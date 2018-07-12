@@ -1,18 +1,22 @@
 #header
   margin: 0 auto 3rem
   width: 100%
+  padding-bottom: 2vh
+  border-bottom: 1px solid $color-accent-1
 
   h1, .h1
     margin-top: 0
     margin-bottom: 0
     color: $color-text
-    letter-spacing: .01em
-    font-weight: 700
     font-style: normal
-    font-size: 1.5rem
-    line-height: 2rem
+    font-size: 1.2rem
+    line-height: normal
 
     antialias()
+    
+  @media (min-width: 900px)
+    h1, .h1
+      font-size: 2rem
 
   a
     background: none
@@ -22,16 +26,16 @@
   #logo
     display: inline-block
     float: left
-    margin-right: 20px
+    margin-right: 1rem
+    margin-bottom: 0.5rem
     width: $logo-width
     height: $logo-height
-    border-radius: 5px
-    filter: grayscale(100%)
+    background-color: $color-background
+    padding: 1rem
     background-size: $logo-width $logo-height
     background-repeat: no-repeat
-    -webkit-filter: grayscale(100%)
 
-  #nav
+  .nav
     color: $color-accent-1
     letter-spacing: .01em
     font-weight: 200
@@ -45,8 +49,11 @@
       line-height: 15px
 
       a
-        margin-right: 15px
+        margin-right: 1.2em
         color: color-accent-1
+        display: inline-block
+        padding-top: 0.5em
+        padding-bottom: 0.5em
 
       a:hover
         underline(5px, $color-accent-1)
@@ -81,7 +88,7 @@
       display: table-cell
       vertical-align: middle
 
-  #header #nav
+  #header .nav
     ul
       a:hover
         background: none
@@ -92,7 +99,7 @@
 
       li.icon
         position: absolute
-        top: 55px
+        top: 2rem
         right: 1rem
         display: inline-block
 
