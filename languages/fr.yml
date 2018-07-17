@@ -7,6 +7,7 @@ nav:
 
 footer:
   copyright: Copyright
+  under_license: sous licence
 
 index:
   find_me_on: Retrouvez-nous sur
@@ -14,6 +15,7 @@ index:
   enum_and: et
   articles: Nouvelles
   projects: Projets
+  social_media: Réseaux sociaux
 
 post:
   desktop:

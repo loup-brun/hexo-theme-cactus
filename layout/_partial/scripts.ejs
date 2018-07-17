@@ -70,3 +70,7 @@
         }());
     </script>
 <% } %>
+
+<% if (page.ajax) { %>
+  <%- js('/lib/nanoajax/nanoajax.min.js') %>
+<% } %>

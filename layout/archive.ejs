@@ -16,4 +16,7 @@
     <% }); %>
   </ul>
   <%- partial('_partial/pagination') %>
+    <% if (config.feed || config.rss) { %>
+    <p><a href="<%- url_for(config.feed.path || '/rss.xml') %>"><i class="fas fa-rss"></i></a></p>
+  <% } %>
 </div>

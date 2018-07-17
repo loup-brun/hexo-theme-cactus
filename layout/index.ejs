@@ -38,7 +38,7 @@
 <% } %>
 
 <section id="social">
-    <span class="h1">Réseaux sociaux</span>
+    <span class="h1"><%- __('index.social_media') %></span>
   <% if (theme.social_links) { %>
     <p>
       <%= __('index.find_me_on') %>
@@ -61,5 +61,9 @@
         <% i+=1 %>
       <% } %>
     </p>
+  <% } %>
+  
+  <% if (config.feed || config.rss) { %>
+    <p>Abonnez-vous via <a href="<%- url_for(config.feed.path || '/rss.xml') %>"><i class="fas fa-rss"></i></a></p>
   <% } %>
 </section>

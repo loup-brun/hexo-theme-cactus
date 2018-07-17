@@ -7,6 +7,13 @@
 
 global-reset()
 
+::selection
+  background-color: $color-accent-1
+  color: #fff
+::-moz-selection
+  background-color: rgba($color-accent-1, 0.35)
+  color: $color-accent-2
+
 *, *:before, *:after
   box-sizing: border-box
 
@@ -29,6 +36,10 @@ body
   text-rendering: geometricPrecision
 
   antialias()
+
+@media (min-width: 700px)
+  body
+    font-size: $font-size-lg
 
 h1, .h1,
 h2, .h2,

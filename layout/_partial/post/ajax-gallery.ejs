@@ -1,0 +1,52 @@
+<div class="" id="ajax-gallery">
+</div>
+
+<script src="/lib/blazy/blazy.min.js"></script>
+<script src="/lib/nanoajax/nanoajax.min.js"></script>
+<script>
+  (function () {
+    var _apiURL = '<%= theme.photo_url %>';
+    var _images = {};
+    var _galleryWrapper = document.getElementById('ajax-gallery');
+    
+    // get the images
+    getAlbum();
+    
+    function getAlbum() {
+      nanoajax.ajax({
+        url: '<%- theme.photo_api %>',
+        method: 'POST',
+        body: '<%- 'albumID=' + page.albumID
+                 + '&function=Album::get' %>'
+                 + '&password='
+      }, function (code, responseText, request) {
+        if (code !== 200) {
+          // uh-oh :(
+        } else {
+          // ok!
+          // `responseText` contains our data in raw JSON
+          var responseObject = JSON.parse(responseText);
+          _images = responseObject.content;
+          console.log(_images);
+          
+          for (var i in _images) {
+            _galleryWrapper.innerHTML +=
+                '<figure>' +
+              '<a href="' + _apiURL + _images[i].url + '">' +
+                  '<img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="' + _apiURL + _images[i].url + '" />' +
+              '</a>' +
+                    '<figcaption>' +
+                    '</figcaption>' +
+                '</figure>';
+          }
+
+          // finally init blazy
+          var bLazy = new Blazy();
+          
+//          _galleryWrapper.className += ' article-gallery';
+//          $(_galleryWrapper).justifiedGallery();
+        }
+      }); 
+    }
+  })();
+</script>
