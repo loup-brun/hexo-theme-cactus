@@ -52,11 +52,13 @@ posts_overview:
 #   - url: where the logo can be found
 #   - gravatar: whether to use your Gravatar as the logo
 logo:
-  enabled: true
-  width: 60
-  height: 60
+  enabled: false
+  width: 55
+  height: 55
   url: /images/favicon.png
   gravatar: false
+
+hero_logo: /images/logo-612.png
 
 default_banner: /images/logo-612.png
 

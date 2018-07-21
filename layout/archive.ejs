@@ -1,4 +1,4 @@
-<div id="archive">
+<div id="archive" class="content">
   <ul class="post-list">
     <% var year = 0 %>
     <% var change = false %>
@@ -17,6 +17,6 @@
   </ul>
   <%- partial('_partial/pagination') %>
     <% if (config.feed || config.rss) { %>
-    <p><a href="<%- url_for(config.feed.path || '/rss.xml') %>"><i class="fas fa-rss"></i></a></p>
+    <p><a href="<%- url_for(config.feed.path || '/rss.xml') %>" class="icon"><i class="fas fa-rss"></i></a></p>
   <% } %>
 </div>

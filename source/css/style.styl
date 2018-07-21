@@ -8,7 +8,7 @@
 global-reset()
 
 ::selection
-  background-color: $color-accent-1
+  background-color: rgba($color-accent-1, 0.35)
   color: #fff
 ::-moz-selection
   background-color: rgba($color-accent-1, 0.35)
@@ -59,13 +59,16 @@ h1, .h1
     font-size: 7vw
   
 .content
+  padding: 2rem
+  max-width: 760px
+  margin: 0 auto
   flex: 1
 
   @extend $base-style
 
   p
     hyphens(auto)
-    margin: 2em 0
+    margin: 0 0 2em
 
   code
     hyphens(manual)
@@ -73,12 +76,32 @@ h1, .h1
   a
     color: $color-text
     text-decoration: none
-
+    position: relative
+    
+    
     underline(5px, $color-text)
-
     &:hover
       background-image: linear-gradient(transparent, transparent 4px, $color-link 4px, $color-link)
+      background-color: rgba($color-accent-1, 0.35)
+      color: $color-text
+    &:active
+      background-color: rgba($color-accent-1, 0.95)
 
+    &[href*="http"]:hover::before, 
+    &[data-internal]:hover::before
+      content: attr(href)
+      display: block
+      position: absolute
+      top: -1.65em
+      opacity: 0.95
+      padding: 0em 0.35em 0em 0.25em
+      background: $color-accent-1
+      color: #fff
+      letter-spacing: 0.015rem
+      font-size: 0.8rem
+      white-space: nowrap
+    &[data-internal]:hover::before
+      content: attr(title)
   a.icon
     background: none
 
@@ -126,9 +149,6 @@ h1, .h1
     margin-top: 2rem
     margin-bottom: 2rem
 
-@media (min-width: 480px)
-  p
-    text-align: justify
 
 @import "_partial/header"
 @import "_partial/post/actions_desktop"
@@ -213,6 +233,25 @@ code
     height: 22px
 
 .hero
-  background-color: $color-link
-  .hero-content
-    padding: 20vh 10vw 20vh
+  padding: 0 2rem
+  margin: 2rem 0
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+.hero-logo
+  width: 12rem
+  height: auto
+  max-width: 100%
+  flex-basis: 2
+  display: block
+  margin: 2rem
+.hero-description
+  text-align: center
+  margin: 0 auto
+
+/*@media (min-width: 760px)
+  .hero-description
+    font-size: 2.5vw
+    max-width: 18em*/
+    

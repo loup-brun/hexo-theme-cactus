@@ -1,5 +1,5 @@
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
+<article class="post content" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
     <%- partial('_partial/post/title', { post: page, index: false, class_name: 'posttitle' }) %>
     <div class="meta">
       <%- partial('_partial/post/date', { post: page, class_name: 'postdate' }) %>
@@ -13,8 +13,10 @@
   </header>
   <%- partial('_partial/post/gallery') %>
   <%- partial('_partial/post/ajax-gallery') %>
-  <div class="content" itemprop="articleBody">
+  <div class="post-content" itemprop="articleBody">
     <%- page.content %>
   </div>
+  <%- partial('_partial/post/post-footer') %>
 </article>
+
 <%- partial('_partial/comments') %>

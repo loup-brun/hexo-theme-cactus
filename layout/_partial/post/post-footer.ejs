@@ -1,0 +1,11 @@
+<footer class="post-footer">
+  <% if (page.prev) { %>
+  <a class="icon" href="<%- url_for(page.prev.path) %>" rel="prev" data-internal title="<%- __('post.desktop.previous') %>"><i class="fas fa-chevron-left" aria-hidden="true"></i></a>
+  <% } %>
+  <% if (page.next) { %>
+    <a class="icon" href="<%- url_for(page.next.path) %>" rel="next" data-internal title="<%- __('post.desktop.next') %>"><i class="fas fa-chevron-right" aria-hidden="true"></i></a>
+  <% } %>
+  <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" rel="noreferrer"><i class="fas fa-chevron-up" aria-hidden="true" data-internal title="<%- __('post.desktop.back_to_top') %>"></i></a>
+  |
+  <%- partial('share', {icon_class_name: ''}) %>
+</footer>

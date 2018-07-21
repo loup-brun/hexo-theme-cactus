@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html<%= config.language ? " lang=" + config.language.substring(0, 2) : ""%>>
 <%- partial('_partial/head') %>
-<body class="max-width mx-auto px3 <%- theme.direction -%>">
-    <% if (is_post()) { %>
-      <%- partial('_partial/post/actions_desktop') %>
-    <% } %>
-    <div class="content index my4">
-      <%- partial('_partial/header') %>
-        
-        <%- body %>
-    </div>
-    <%- partial('_partial/footer') %>
+<body class="<%- theme.direction -%>">
+  <% if (is_post()) { %>
+    <%- partial('_partial/post/actions_desktop') %>
+  <% } %>
+
+  <%- partial('_partial/header') %>
+
+  <main class="main">
+      <%- body %>
+  </main>
+
+  <%- partial('_partial/footer') %>
 </body>
 </html>
 <%- partial('_partial/styles') %>

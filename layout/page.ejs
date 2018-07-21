@@ -1,4 +1,4 @@
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="page content" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     <%- partial('_partial/post/title', { post: page, index: false, class_name: 'posttitle' }) %>
   </header>
@@ -6,7 +6,7 @@
     <%- partial('_partial/search') %>
   <% } %>
   <%- partial('_partial/post/gallery') %>
-  <div class="content" itemprop="articleBody">
+  <div class="page-content" itemprop="articleBody">
     <%- page.content %>
     <%- partial('_partial/post/ajax-gallery') %>
   </div>
