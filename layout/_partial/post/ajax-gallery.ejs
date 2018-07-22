@@ -1,13 +1,43 @@
-<div class="" id="ajax-gallery">
+<div class="ajax-gallery" id="ajax-gallery">
+  <!-- Placeholders -->
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
+  <figure class="gallery-thumb"></figure>
 </div>
 
+<script id="thumb-tpl" type="text/template">
+  <figure class="gallery-thumb">
+    <a href="<%= theme.photo_url %>{{photo.url}}" rel="0">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+           data-src="<%= theme.photo_url %>{{photo.thumbUrl}}"
+           class="b-lazy"
+           alt="{{photo.title}}" />
+      <div class="gallery-thumb__overlay">
+        <i class="fa fa-eye icon"></i>
+      </div>
+    </a>
+  </figure>
+</script>
+
+<script src="/lib/tiny-mustache/mustache.min.js"></script>
 <script src="/lib/blazy/blazy.min.js"></script>
 <script src="/lib/nanoajax/nanoajax.min.js"></script>
+<script src="/lib/0/0.min.js"></script>
 <script>
   (function () {
     var _apiURL = '<%= theme.photo_url %>';
     var _images = {};
     var _galleryWrapper = document.getElementById('ajax-gallery');
+    var _thumbTpl = document.getElementById('thumb-tpl').innerHTML;
     
     // get the images
     getAlbum();
@@ -27,17 +57,11 @@
           // `responseText` contains our data in raw JSON
           var responseObject = JSON.parse(responseText);
           _images = responseObject.content;
-          console.log(_images);
           
+          _galleryWrapper.innerHTML = ''
+
           for (var i in _images) {
-            _galleryWrapper.innerHTML +=
-                '<figure>' +
-              '<a href="' + _apiURL + _images[i].url + '">' +
-                  '<img class="b-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="' + _apiURL + _images[i].url + '" />' +
-              '</a>' +
-                    '<figcaption>' +
-                    '</figcaption>' +
-                '</figure>';
+            _galleryWrapper.innerHTML += mustache(_thumbTpl, {photo: _images[i]});
           }
 
           // finally init blazy

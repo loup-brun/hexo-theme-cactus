@@ -1,13 +1,14 @@
-<article class="page content max-width mx-auto p3" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
+<article class="page px3 mx-auto centered-content max-width-4" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="text-center">
     <%- partial('_partial/post/title', { post: page, index: false, class_name: 'posttitle' }) %>
   </header>
   <% if (page.search) { %>
     <%- partial('_partial/search') %>
   <% } %>
-  <%- partial('_partial/post/gallery') %>
   <div class="page-content" itemprop="articleBody">
-    <%- page.content %>
+    <div class="content">
+      <%- page.content %>
+    </div>
     <%- partial('_partial/post/ajax-gallery') %>
   </div>
 </article>
