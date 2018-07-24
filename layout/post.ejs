@@ -10,6 +10,14 @@
 -->
       <%- partial('_partial/post/tag') %>
     </div>
+    <% if (page.banner) { %>
+<!--
+      <div class="article-banner"
+           role="banner"
+           style="background-image: url('<%= page.banner %>')">
+      </div>
+-->
+    <% } %>
   </header>
   <div class="post-content" itemprop="articleBody">
     <%- page.content %>

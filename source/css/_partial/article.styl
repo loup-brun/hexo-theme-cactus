@@ -128,13 +128,17 @@ td
     .posttitle
       margin-top: 0
   img
+    margin: 2rem auto
+    width: $page-width * 0.75
     box-shadow: 0 3px 6px 1px rgba(0,0,0,0.25)
     padding: 3% 3% 12%
     transform: rotate(1.2deg)
     background-color: $color-background
     position: relative
-  img:nth-child(3n + 0)
+  img:nth-child(2n + 0)
     transform: rotate(-1.1deg)
+    left: -0.5rem
+  img+img
     margin-top: -2rem
 
 img, video
