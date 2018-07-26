@@ -14,9 +14,10 @@ direction: ltr
 # navigation menu. Optionally, you can add translations for the 'Key' in
 # languages/*.yml
 nav:
-  Accueil: /
+#  Accueil: /
   Équipe: /equipe/
   Nouvelles: /nouvelles/
+  Photos: /photos/
 
 
 # Links to your social media accounts.
@@ -36,8 +37,8 @@ social_links:
 #   - show_all_posts: whether to show all available posts.
 #   - post_count: whether to show only the x most recent posts.
 posts_overview:
-  show_all_posts: false
-  post_count: 5
+  show_all_posts: true
+  post_count: 10
 
 
 ##############################################################################
@@ -136,5 +137,7 @@ gravatar:
 
 show_author: false
 
-photo_url: https://photos.athlaurentides.ca/
-photo_api: https://photos.athlaurentides.ca/php/index.php
+lychee_url: https://photos.athlaurentides.ca/
+lychee_api: https://photos.athlaurentides.ca/php/index.php
+indexAlbumID: 15317672525145
+indexGalleryLimit: 12

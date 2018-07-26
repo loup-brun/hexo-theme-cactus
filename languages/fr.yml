@@ -21,12 +21,12 @@ post:
   desktop:
     previous: Article précédent
     next: Article suivant
-    back_to_top: Retour au début
-    share: Partager cette article
+    back_to_top: Haut
+    share: Partager
   mobile:
     menu: Menu
     toc: Table des matières
-    back_to_top: Début
+    back_to_top: Haut
     share: Partager
 
 search:

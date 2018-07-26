@@ -70,3 +70,9 @@
         }());
     </script>
 <% } %>
+
+<% if (page.scripts) { %>
+  <% page.scripts.forEach(function (script) { %>
+    <%- js(script) %>
+  <% }) %>
+<% } %>

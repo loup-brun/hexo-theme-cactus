@@ -10,7 +10,8 @@
       </div>
     <% } %>
   </section>
-  <div class="content p3 mx-auto max-width">
+
+  <div class="content px3 mx-auto max-width">
     <section id="writing">
       <span class="h1"><a href="<%- url_for(config.archive_dir) %>"><%= __('index.articles') %></a></span>
       <ul class="post-list">
@@ -75,4 +76,23 @@
       <% } %>
     </section>
   </div>
+  
+    <div class="mx-auto max-width my3">
+      <hr>
+    </div>
+
+  <section class="px3 centered-content" id="photos">
+    <header class="max-width mx-auto">
+      <span class="h1">Dernières photos</span>
+    </header>
+    
+    <div class="content">
+      <p>Utilisez le mot-clic <a href="https://www.instagram.com/explore/tags/golau/" target="_blank">#GoLAU</a> et taguez <a href="https://www.instagram.com/athlaurentides" target="_blank">@athlaurentides</a>.</p>
+      <p>Retrouvez + de <span class="emoji">📷</span> sous la section <a href="<%- url_for('/photos/') %>">photos</a>.</p>
+    </div>
+    
+    <div class="max-width-4 mx-auto">
+      <%- partial('_partial/ajax-gallery', { album: theme.indexAlbumID, limit: theme.indexGalleryLimit || 12,  service: 'lychee', service_url: theme.lychee_url }) %>
+    </div>
+  </section>
 </div>

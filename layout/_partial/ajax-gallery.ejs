@@ -1,0 +1,89 @@
+<div class="ajax-gallery" id="ajax-gallery">
+  <!-- Placeholders -->
+  <% var thumbCount = limit || 12; %>
+  <% for (var i = 0; i < thumbCount; i++) { %>
+  <figure class="gallery-thumb"></figure>
+  <% } %>
+</div>
+
+<script id="thumb-tpl" type="text/template">
+  <figure class="gallery-thumb">
+    <a href="<%= service_url %>{{photo.url}}" rel="0">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+           data-src="<%= service_url %>{{photo.thumbUrl}}"
+           class="b-lazy"
+           alt="{{photo.title}}" />
+      <div class="gallery-thumb__overlay">
+        <i class="fa fa-eye icon"></i>
+      </div>
+    </a>
+  </figure>
+</script>
+
+<script src="/lib/tiny-mustache/mustache.min.js"></script>
+<script src="/lib/blazy/blazy.min.js"></script>
+<script src="/lib/nanoajax/nanoajax.min.js"></script>
+<script src="/lib/0/0.min.js"></script>
+<script>
+  (function () {
+    var _apiURL = '<%= service_url %>';
+    var _images = {};
+    var _galleryWrapper = document.getElementById('ajax-gallery');
+    var _thumbTpl = document.getElementById('thumb-tpl').innerHTML;
+    var _limit = <%= limit %>;
+    var _thumbCounter = 0;
+
+    // get the images
+    getAlbum();
+    
+    function getAlbum() {
+      nanoajax.ajax({
+        url: '<%= service_url + 'php/index.php' %>',
+        method: 'POST',
+        body: 'albumID=<%= album %>&function=Album::get&password='
+      }, function (code, responseText, request) {
+        if (code !== 200) {
+          // uh-oh :(
+          console.error('Error retrieving Lychee album', responseText)
+        } else {
+          // ok!
+          // `responseText` contains our data in raw JSON
+          var responseObject = JSON.parse(responseText);
+          _images = responseObject.content;
+          console.log('images', _images);
+          
+          _galleryWrapper.innerHTML = '';
+          
+          // check if there are images
+          if (_images === false) {
+            _galleryWrapper.innerHTML = '<p>0 photos :(</p>'
+          } else {
+            for (var i in _images) {
+              _addThumb(_images[i]);
+            }
+          }          
+
+          // finally init blazy
+          var bLazy = new Blazy();
+
+          /**
+           * Add a thumbnail to the gallery
+           * 
+           * @private
+           * @param {object} photo Object of the photo to be templated
+           */
+          function _addThumb(photo) {
+            // If there is a limit and we are outside the limit,
+            // return (stop) immediately.
+            if (_limit > 0 && _thumbCounter >= _limit) {
+              return;
+            } else {
+              _galleryWrapper.innerHTML += mustache(_thumbTpl, {photo: photo});
+              _thumbCounter++;
+            }
+          }
+        }
+      }); 
+    }
+  })();
+</script>

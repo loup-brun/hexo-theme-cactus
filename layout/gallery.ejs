@@ -9,6 +9,9 @@
     <div class="content">
       <%- page.content %>
     </div>
-    <%- partial('_partial/post/ajax-gallery') %>
+    
+    <hr />
+    
+    <%- partial('_partial/ajax-gallery', { album: page.albumID, limit: page.limit || 0, service: 'lychee', service_url: theme.lychee_url }) %>
   </div>
 </article>
