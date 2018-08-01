@@ -1,4 +1,11 @@
 <div class="index">
+  <% if (theme.infobanner) { %>
+  <div class="infobanner my2">
+    <div class="max-width mx-auto">
+      <p><%= theme.infobanner %></p>
+    </div>
+  </div>
+  <% } %>
   <section class="hero">
     <% if (theme.hero_logo) { %>
       <img src="<%- url_for(theme.hero_logo) %>" alt="<%= config.title %>" class="hero-logo" />

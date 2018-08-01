@@ -6,7 +6,7 @@
     <%- partial('_partial/post/actions_desktop') %>
   <% } %>
 
-  <%- partial('_partial/header') %>
+  <%- partial('_partial/header', {}, {cache: true}) %>
 
   <main class="main">
       <%- body %>

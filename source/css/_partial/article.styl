@@ -4,14 +4,13 @@ h1, .h1
   margin-bottom: 1rem
   color: $color-accent-1
   font-style: normal
-  font-size: 3.3rem
+  font-size: 2rem
 
   antialias()
 
 @media (min-width: 900px)
   h1, .h1
     font-size: 6vw
-
 
 h2, .h2
   position: relative
@@ -21,21 +20,27 @@ h2, .h2
   color: $color-accent-2
   text-transform: none
   letter-spacing: normal
-  font-size: 2.2rem
+  font-size: 1.8rem
   &:before
     content: '#'
     color: $color-accent-1
     display: inline-block
-    position: absolute
-    left: -2.5rem
+    float: left
+    margin-right: 0.5rem
 
-@media (max-width: 700px)
+@media (min-width: 700px)
   h2, .h2
-    margin-left: 1em
+    font-size: 2.2rem
+    &:before
+      margin-left: -2.5rem
 
 h3
   color: $color-accent-2
-  font-size: 1.5rem
+  font-size: 1.35rem
+
+@media (min-width: 700px)
+  h3
+    font-size: 1.5rem
 
 h4, h5, h6
   display: inline
