@@ -38,3 +38,7 @@ pagination:
 
 comments:
   no_js: Please enable JavaScript to view the comments.
+
+gallery:
+  view: View
+  download: Download

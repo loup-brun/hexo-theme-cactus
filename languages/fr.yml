@@ -38,3 +38,7 @@ pagination:
 
 comments:
   no_js: Veuillez activer JavaScript pour voir les réactions.
+
+gallery:
+  view: Voir
+  download: Télécharger

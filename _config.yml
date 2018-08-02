@@ -142,5 +142,5 @@ lychee_api: https://photos.athlaurentides.ca/php/index.php
 indexAlbumID: 15317672525145
 indexGalleryLimit: 12
 
-infobanner: >
-  [MISE À JOUR à 19:50] Arrivée prévue du bloc #1 à 20h20 au Complexe Val-d'Espoir à Mirabel.
+#infobanner: >
+#  [MISE À JOUR à 19:50] Arrivée prévue du bloc #1 à 20h20 au Complexe Val-d'Espoir à Mirabel.
